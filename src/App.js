@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
@@ -7,7 +7,7 @@ const App = () => {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState("");
   const [history, setHistory] = useState([]);
-  const [coordinates, setCoordinates] = useState(null);  // To store the location's coordinates
+  const [coordinates, setCoordinates] = useState(null); // To store the location's coordinates
 
   const fetchWeather = async () => {
     try {
@@ -57,6 +57,23 @@ const App = () => {
     }
   };
 
+  // Dynamic background color based on temperature
+  useEffect(() => {
+    if (weather) {
+      const temp = weather.main.temp;
+
+      if (temp <= 50) {
+        document.body.style.backgroundColor = "#85C1E9"; // Light Blue for cold
+      } else if (temp > 50 && temp <= 70) {
+        document.body.style.backgroundColor = "#A9DFBF"; // Light Green for cool
+      } else if (temp > 70 && temp <= 90) {
+        document.body.style.backgroundColor = "#FFE59D"; // Light Yellow for warm
+      } else {
+        document.body.style.backgroundColor = "#F1948A"; // Light Red for hot
+      }
+    }
+  }, [weather]); // Runs every time the weather updates
+
   return (
     <div className="app">
       <div className="left-section">
@@ -74,7 +91,8 @@ const App = () => {
           </button>
           {error && <p className="error-msg">{error}</p>}
         </div>
-
+        <br />
+        <br />
         {weather && (
           <div className="weather-container">
             <h2>
