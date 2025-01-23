@@ -1,0 +1,158 @@
+/* Global Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  text-align: center;
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 90%;
+}
+
+/* Header Styling */
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #ff6a88;
+}
+
+/* Input Field Styling */
+.input-field {
+  width: 75%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  outline: none;
+  color: #333;
+  background: #f9f9f9;
+  transition: 0.3s ease-in-out;
+}
+
+.input-field::placeholder {
+  color: #aaa;
+}
+
+.input-field:focus {
+  border-color: #ff6a88;
+  box-shadow: 0 6px 15px rgba(255, 106, 136, 0.3);
+}
+
+/* Search Button Styling */
+.search-btn {
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  color: white;
+  font-size: 1rem;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  background: linear-gradient(to right, #ff7eb3, #ff758c);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(255, 120, 135, 0.4);
+}
+
+/* Weather Container Styling */
+.weather-container {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease;
+  color: #333;
+}
+
+.weather-container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.weather-container p {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+/* History Container Styling */
+.history-container {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.history-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.history-container ul {
+  padding: 0;
+  list-style: none;
+}
+
+.history-container li {
+  font-size: 1rem;
+  margin: 5px 0;
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.history-container li:hover {
+  background: #ebebeb;
+}
+
+/* Error Message Styling */
+.error-msg {
+  color: #ff6b6b;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
