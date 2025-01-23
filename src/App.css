@@ -1,85 +1,108 @@
-/* Global Styling */
-body {
+/* General Reset */
+* {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
-  background: linear-gradient(135deg, #ffecd2, #fcb69f);
-  background-size: 400% 400%;
-  animation: gradientBackground 15s ease infinite;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
   color: #333;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
+/* Main Container */
 .app {
-  text-align: center;
-  background: white;
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  max-width: 500px;
-  width: 90%;
+  max-width: 1000px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;  /* Add space between sections */
 }
 
-/* Header Styling */
+/* Headings */
 h1 {
-  font-size: 2.8rem;
-  margin-bottom: 20px;
-  color: #ff6a88;
+  text-align: center;
+  color: #4CAF50;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
-/* Input Field Styling */
-.input-field {
-  width: 75%;
-  padding: 12px 15px;
-  border: 2px solid #ddd;
-  border-radius: 25px;
+h2, h3 {
+  text-align: center;
+  color: #4CAF50;
   margin-bottom: 15px;
-  font-size: 1rem;
-  outline: none;
-  color: #333;
-  background: #f9f9f9;
-  transition: 0.3s ease-in-out;
 }
 
-.input-field::placeholder {
-  color: #aaa;
+.weather-container h3 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Input Fields and Selects */
+.input-field {
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  font-size: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .input-field:focus {
-  border-color: #ff6a88;
-  box-shadow: 0 6px 15px rgba(255, 106, 136, 0.3);
+  outline: none;
+  border: 1px solid #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
-/* Search Button Styling */
-.search-btn {
-  background: linear-gradient(to right, #ff758c, #ff7eb3);
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
   color: white;
-  font-size: 1rem;
-  padding: 10px 25px;
+  font-size: 1.2rem;
   border: none;
-  border-radius: 25px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-.search-btn:hover {
-  background: linear-gradient(to right, #ff7eb3, #ff758c);
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(255, 120, 135, 0.4);
+button:hover {
+  background-color: #45a049;
 }
 
-/* Weather Container Styling */
+button:disabled {
+  background-color: #ddd;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Error Message */
+.error-msg {
+  color: #e63946;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Weather Information */
 .weather-container {
-  margin-top: 20px;
   padding: 20px;
-  border-radius: 15px;
-  background: white;
+  background-color: #f5f5f5;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease;
-  color: #333;
 }
 
 .weather-container h2 {
@@ -89,70 +112,74 @@ h1 {
 
 .weather-container p {
   font-size: 1.1rem;
-  margin: 5px 0;
+  margin: 8px 0;
 }
 
-/* History Container Styling */
-.history-container {
-  margin-top: 20px;
+/* Right Section: Map and History */
+.right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
   padding: 15px;
-  border-radius: 15px;
-  background: white;
+}
+
+.map-container {
+  width: 100%;
+  height: 350px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.history-container {
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .history-container h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  color: #4CAF50;
   margin-bottom: 15px;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 5px;
 }
 
 .history-container ul {
-  padding: 0;
   list-style: none;
+  padding: 0;
 }
 
 .history-container li {
-  font-size: 1rem;
-  margin: 5px 0;
-  background: #f5f5f5;
-  padding: 10px;
-  border-radius: 5px;
-  transition: 0.3s;
+  background-color: #fff;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  font-size: 1.1rem;
 }
 
 .history-container li:hover {
-  background: #ebebeb;
+  background-color: #f1f1f1;
 }
 
-/* Error Message Styling */
-.error-msg {
-  color: #ff6b6b;
-  margin-top: 10px;
-  font-weight: bold;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app {
+    padding: 15px;
+  }
 
-/* Keyframes for animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
+  .input-field, button {
+    font-size: 1rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes gradientBackground {
-  0% {
-    background-position: 0% 50%;
+  .map-container {
+    height: 250px;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+
+  .history-container {
+    padding: 15px;
   }
 }
